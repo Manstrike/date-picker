@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Calendar</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/PickMeUp/3.2.1/css/pickmeup.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PickMeUp/3.2.1/js/pickmeup.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src='index.js'></script>
+</head>
+<body>
+    <label id="selected-date"></label>
+    <section>
+        <h3>Presets</h3>
+        <div class="preset-panel">
+            <a href="#" class ="selected" data-value="today">Today</a>
+            <a href="#" class data-value="day">Yesterday</a>
+            <a href="#" class data-value="week">Week to Date</a>
+            <a href="#" class data-value="month">Month to Date</a>
+        </div>
+
+        <h3>Custom</h3>
+        <div class="custom-panel">
+            <label>Present</label>
+            <input type="text" name="txtPres" id="txtPres" value="1" maxlength="3" style="width: 24px">
+            <div class="ui-single-selector" style="display: block; min-width: 112px; top: 97px; left: 468px;" data-selector="true">
+                <select id="pres" class="ui-widget-content">
+                    <option value="" class="ui-corner-all">----</option>
+                    <option value="day" class="ui-corner-all">Days</option>
+                    <option value="week" class="ui-corner-all">Weeks</option>
+                    <option value="month" class="ui-corner-all">Months</option>
+                    <option value="quarter" class="ui-corner-all">Quarters</option>
+                    <option value="year" class="ui-corner-all">Years</option>
+                </select>
+            </div>
+
+
+            <label>Previous</label>
+            <input type="text" name="txtPrev" id="txtPrev" value="1" maxlength="3" style="width: 24px">
+            <div class="ui-single-selector" style="display: block; min-width: 112px; top: 97px; left: 468px;" data-selector="true">
+                <select id="prev" class="ui-widget-content">
+                        <option value="" class="ui-corner-all">----</option>
+                        <option value="day" class="ui-corner-all">Days</option>
+                        <option value="week" class="ui-corner-all">Weeks</option>
+                        <option value="month" class="ui-corner-all">Months</option>
+                        <option value="quarter" class="ui-corner-all">Quarters</option>
+                        <option value="year" class="ui-corner-all">Years</option>
+                </select>
+            </div>
+
+            <label>To Date</label>
+            <div class="ui-single-selector" style="display: block; min-width: 112px; top: 97px; left: 468px;" data-selector="true">
+                <select id="to-date" class="ui-widget-content">
+                        <option value="" class="ui-corner-all">----</option>
+                        <option value="week" class="ui-corner-all">Week</option>
+                        <option value="month" class="ui-corner-all">Month</option>
+                        <option value="quarter" class="ui-corner-all">Quarter</option>
+                        <option value="year" class="ui-corner-all">Year</option>
+                </select>
+            </div>
+
+        </div>
+    </section>
+    <section>
+        <h2>Working flow</h2>
+        <article>
+            <div class="template"></div>
+        </article>
+    </section>
+</body>
+</html>
