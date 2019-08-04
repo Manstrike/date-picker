@@ -14,7 +14,7 @@
 </head>
 <body>
     <section>
-        <h3>Presets</h3>
+        <h2>Presets</h2>
         <div class="preset-panel">
             <a href="#" class ="selected" data-value="today">Today</a>
             <a href="#" class data-value="day">Yesterday</a>
@@ -22,11 +22,11 @@
             <a href="#" class data-value="month">Month to Date</a>
         </div>
 
-        <h3>Custom</h3>
+        <h2>Custom</h2>
         <div class="custom-panel">
-            <label>Present</label>
-            <input type="text" name="txtPres" id="txtPres" value="1" maxlength="3" style="width: 24px">
             <div class="ui-single-selector" style="display: block; min-width: 112px; top: 97px; left: 468px;" data-selector="true">
+                <label>Present</label>
+                <input type="text" name="txtPres" id="txtPres" value="1" maxlength="3" style="width: 24px">
                 <select id="Present" class="ui-widget-content">
                     <option value="" class="ui-corner-all">----</option>
                     <option value="day" class="ui-corner-all">Days</option>
@@ -37,10 +37,9 @@
                 </select>
             </div>
 
-
-            <label>Previous</label>
-            <input type="text" name="txtPrev" id="txtPrev" value="1" maxlength="3" style="width: 24px">
             <div class="ui-single-selector" style="display: block; min-width: 112px; top: 97px; left: 468px;" data-selector="true">
+                <label>Previous</label>
+                <input type="text" name="txtPrev" id="txtPrev" value="1" maxlength="3" style="width: 24px">             
                 <select id="Previous" class="ui-widget-content">
                         <option value="" class="ui-corner-all">----</option>
                         <option value="day" class="ui-corner-all">Days</option>
@@ -51,8 +50,8 @@
                 </select>
             </div>
 
-            <label>To Date</label>
             <div class="ui-single-selector" style="display: block; min-width: 112px; top: 97px; left: 468px;" data-selector="true">
+                <label>To Date</label>
                 <select id="to-date" class="ui-widget-content">
                         <option value="" class="ui-corner-all">----</option>
                         <option value="week" class="ui-corner-all">Week</option>

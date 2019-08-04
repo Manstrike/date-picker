@@ -14,3 +14,28 @@
   body {
     margin: 0;
   }
+
+  a {
+    vertical-align: baseline;
+    margin: 10px;
+  }
+
+  .ui-single-selector {
+    margin: 10px;
+  }
+
+  label {
+    margin: 5px;
+  }
+
+  button {
+    margin: 10px;
+  }
+
+  h2 {
+    margin: 5px;
+  }
+
+  .template {
+    margin: 10px;
+  }
