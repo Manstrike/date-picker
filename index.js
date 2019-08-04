@@ -1,6 +1,7 @@
 $(document).ready(readyHandler);
 
-const format = 'DD-MM-YYYY';
+const format = 'YYYY-MM-DD';
+const applyDate = {};
 
 const Unit = {
     DAY: 'day',
@@ -12,8 +13,8 @@ const Unit = {
 }
 
 const Mode = {
-    PRESENT: 'pres',
-    PREVIOUS: 'prev',
+    PRESENT: 'Pres',
+    PREVIOUS: 'Prev',
     TO_DATE: 'to-date',
 }
 
@@ -31,9 +32,11 @@ function readyHandler() {
      * calendar init
      */
     pickmeup('.template', {  
+        default_date: false,
         flat: true,
         mode: 'range',
-        calendars: 3,
+        calendars: 2,
+        format	: 'Y-m-d',
     });
 
     /**
@@ -41,8 +44,12 @@ function readyHandler() {
      */
     $('a').click(presetHandler);
 
+    /**
+     * custom-panel handler
+     */
     $('.ui-widget-content').change(customHandler);
 
+    $('.apply-button').click(applyHandler);
 }
 
 function customHandler() {
@@ -52,7 +59,6 @@ function customHandler() {
     const range = $(`#${findInput}`).val();
 
     const dateRange = calcDateRange(mode, timeUnits, range);
-
     pickmeup('.template').set_date(dateRange);
 }
 
@@ -65,6 +71,17 @@ function presetHandler() {
     const dateRange = calcPresetDates(timeUnits);
 
     pickmeup('.template').set_date(dateRange);    
+}
+
+function applyHandler(e) {
+    e.preventDefault();
+    const temp = pickmeup('.template').get_date(true);
+    const calID = $('.template').attr('id');
+
+    applyDate.calendarID = calID;
+    applyDate.rangeStart = temp[0];
+    applyDate.rangeEnd = temp[1];
+    applyDate.rolling = 1;
 }
 
 function setStartDate(mode, range) {
@@ -122,7 +139,6 @@ function calcPresetDates(timeUnits) {
     }
 
     const units = momentUnitMapping[timeUnits];
-
     const start = moment().startOf(units).format(format);
 
     return [start, today];
