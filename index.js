@@ -83,7 +83,7 @@ function applyHandler(e) {
     textOnLabel();
 }
 
-function setStartDate(mode, unitCount) {
+function getStartDate(mode, unitCount) {
     if (mode === Mode.PRESENT) {
         return unitCount-1;
     }
@@ -91,7 +91,7 @@ function setStartDate(mode, unitCount) {
     return unitCount;
 }
 
-function setEndDate(mode, units) {
+function getEndDate(mode, units) {
     let endDate;
     switch (mode) {
         case Mode.PRESENT :
@@ -111,13 +111,13 @@ function setEndDate(mode, units) {
 function calculateDateRange(mode, timeUnits, unitCount) {
     const temporaryDateRange = [];
 
-    const startDate = setStartDate(mode, unitCount)
+    const startDate = getStartDate(mode, unitCount)
 
     const units = momentUnitMapping[timeUnits];    
 
     
     const start = moment().startOf(units).subtract(startDate, units).format(format);
-    const end = setEndDate(mode, units);
+    const end = getEndDate(mode, units);
 
     temporaryDateRange.push(start);
     temporaryDateRange.push(end);
