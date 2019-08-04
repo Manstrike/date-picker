@@ -1,7 +1,11 @@
 $(document).ready(readyHandler);
 
 const format = 'YYYY-MM-DD';
-const applyDate = {};
+const currDate = moment().format(format);
+const applyDate = {
+    rangeStart: currDate,
+    rangeEnd: currDate,
+};
 
 const Unit = {
     DAY: 'day',
@@ -50,6 +54,8 @@ function readyHandler() {
     $('.ui-widget-content').change(customHandler);
 
     $('.apply-button').click(applyHandler);
+
+    textOnLabel();
 }
 
 function customHandler() {
@@ -82,6 +88,8 @@ function applyHandler(e) {
     applyDate.rangeStart = temp[0];
     applyDate.rangeEnd = temp[1];
     applyDate.rolling = 1;
+
+    textOnLabel();
 }
 
 function setStartDate(mode, range) {
@@ -144,4 +152,9 @@ function calcPresetDates(timeUnits) {
     return [start, today];
 }
 
+function textOnLabel() {
+    const dateLabelStart = applyDate.rangeStart;
+    const dateLabelEnd = applyDate.rangeEnd;
+    $('#selected-date').text(`${dateLabelStart} - ${dateLabelEnd}`);
+}
 
